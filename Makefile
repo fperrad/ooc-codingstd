@@ -1,10 +1,12 @@
 
-
 TESTS:= \
   LineLength \
   HardTabs \
   TrailingSpace \
-  CuddledElse
+  CuddledElse \
+  CamelCase \
+  Parentheses \
+
 
 all:
 	prove --exec="rock -r -sourcepath=../ooc-codingstd/source" $(TESTS)

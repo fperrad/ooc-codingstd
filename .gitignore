@@ -5,4 +5,5 @@ LineLength
 HardTabs
 TrailingSpace
 CuddledElse
-
+CamelCase
+Parentheses
