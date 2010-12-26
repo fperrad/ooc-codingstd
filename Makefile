@@ -11,6 +11,10 @@ TESTS:= \
 all:
 	prove --exec="rock -r -sourcepath=../ooc-codingstd/source" $(TESTS)
 
+README.html: README.md
+	Markdown.pl README.md > README.html
+
 clean:
 	rm -rf *_tmp/ .libs/
 	rm -f $(TESTS)
+	rm -f README.html
