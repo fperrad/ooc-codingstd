@@ -7,6 +7,7 @@ TESTS:= \
   CamelCase \
   Parentheses \
 
+export OOC_LINE_LENGTH=120
 
 all:
 	prove --exec="rock -r -sourcepath=../ooc-codingstd/source" $(TESTS)

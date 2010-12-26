@@ -1,10 +1,12 @@
 
 import io/FileReader
+import os/Env
 import os/Process
 import structs/ArrayList
 import text/StringTokenizer
 
-MAX := const 132
+var := Env get("OOC_LINE_LENGTH")
+MAX := const (var != null) ? var toInt() : 132
 
 main: func(args: ArrayList<String>) {
     progname := args removeAt(0)
