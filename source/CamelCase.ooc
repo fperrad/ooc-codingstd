@@ -7,6 +7,7 @@ import text/StringTokenizer
 
 rx := Regexp compile("([A-Za-z_][\\w_?]*)\\s*:=?\\s*((abstract|extern(\\([^)]*\\))?|inline|static)\\s+)?([\\w_?-]+)")
 comment := Regexp compile("(^\\s+\\*|/[/*])")
+ternaryOp := Regexp compile("\\?[^:]+:")
 capsWithUnderscore := Regexp compile("^[0-9A-Z_]+$")
 lowerCamelCase := Regexp compile("^_*[a-z][0-9A-Za-z]*[_?]*$")
 upperCamelCase := Regexp compile("^[A-Z][0-9A-Za-z]*$")
@@ -41,7 +42,8 @@ check: func(fname: String) -> Bool {
     file eachLine(
         func(line: String) -> Bool {
             m := rx matches(line)
-            if (m != null && comment matches(line) == null) {
+            if (m != null && comment matches(line) == null &&
+                             ternaryOp matches(line) == null) {
                 idf := m group(1)
                 modifier := m group(2)
                 word := m group(5)
