@@ -7,7 +7,7 @@ import text/Regexp
 import text/StringTokenizer
 
 rx := Regexp compile("([A-Za-z_][\\w_?]*)(\\s*)\\(")
-comment := Regexp compile("(^\\s+\\*|/[/*])")
+comment := Regexp compile("(^\\s*\\*|/[/*])")
 keywords := HashMap <String, Bool> new() // control flow + modifier
 keywords put("const", true)
 keywords put("for", true)
