@@ -50,8 +50,8 @@ check: func(fname: String) -> Bool {
                 idf := m group(1)
                 sp := m group(2)
                 if (keywords contains?(idf)) {
-                    if (sp != " ") {
-                        "#OneSpace %s:%d %s" format(fname, i, idf) println()
+                    if (sp == "") {
+                        "#Space %s:%d %s" format(fname, i, idf) println()
                         "# %s" format(line) println()
                         res = false
                     }
