@@ -10,7 +10,7 @@ TESTS:= \
 export OOC_LINE_LENGTH=120
 
 all:
-	prove --exec="rock -r -sourcepath=../ooc-codingstd/source" $(TESTS)
+	prove --exec="rock -r --sourcepath=../ooc-codingstd/source" $(TESTS)
 
 README.html: README.md
 	Markdown.pl README.md > README.html
